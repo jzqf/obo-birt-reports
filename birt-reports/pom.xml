@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.qfree.obo</groupId>
+	<artifactId>birt-reports</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>OBO Reports</name>
+	<description>Java project for developing BIRT reports</description>
+	<inceptionYear>2015</inceptionYear>
+	<organization>
+		<name>Q-Free ASA</name>
+		<url>http://www.q-free.com</url>
+	</organization>
+	<developers>
+		<developer>
+			<id>jeffreyz</id>
+			<name>Jeffrey Zelt</name>
+			<email>Jeffrey.Zelt@q-free.com</email>
+			<url>https://mysite.q-free.com/Person.aspx?accountname=Q-FREE%2ECOM%5CJeffreyZ</url>
+			<organization>Q-Free ASA</organization>
+			<organizationUrl>http://www.q-free.com</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+			<timezone>+1</timezone>
+			<properties>
+				<skype>jeffreyz.q-free.com</skype>
+			</properties>
+		</developer>
+	</developers>
+	<issueManagement>
+		<system>JIRA</system>
+		<url>https://issues.q-free.com:8443/browse/QF15203</url>
+	</issueManagement>
+
+	<properties>
+		<java-version>1.7</java-version>
+		<obo-birt-viewer-version>1.0-SNAPSHOT</obo-birt-viewer-version>
+		<org.slf4j-version>1.7.10</org.slf4j-version>
+		<logback-version>1.1.2</logback-version>
+		<maven-compiler-plugin-version>3.1</maven-compiler-plugin-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<dependencies>
+
+		<dependency>
+		
+			<groupId>com.qfree.obo</groupId>
+			<artifactId>birt-viewer</artifactId>
+			<version>${obo-birt-viewer-version}</version>
+			<exclusions>
+				<!-- This exclusion eliminates the following warning lines:
+				
+					[WARNING] stax-api-1.0.1.jar, axis-jaxrpc-1.4.jar define 1 overlappping classes: 
+					[WARNING]   - javax.xml.namespace.QName
+					
+					when "mvn install" is run to generate the jar file using the
+					maven-shade-plugin Maven plugin.
+				-->
+				<exclusion>
+					<groupId>axis</groupId>
+					<artifactId>axis-jaxrpc</artifactId>
+				</exclusion>
+				<!-- This exclusion eliminates the following warning lines:
+
+					[WARNING] jcl-over-slf4j-1.7.10.jar, commons-logging-1.0.4.jar define 6 overlappping classes: 
+					[WARNING]   - org.apache.commons.logging.impl.SimpleLog$1
+					[WARNING]   - org.apache.commons.logging.Log
+					[WARNING]   - org.apache.commons.logging.impl.SimpleLog
+					[WARNING]   - org.apache.commons.logging.LogConfigurationException
+					[WARNING]   - org.apache.commons.logging.impl.NoOpLog
+					[WARNING]   - org.apache.commons.logging.LogFactory				
+					
+					when "mvn install" is run to generate the jar file using the
+					maven-shade-plugin Maven plugin.
+				-->
+				<!-- <exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion> -->
+			</exclusions>
+			
+			<!-- The element:
+			
+					<classifier>classes</classifier>
+					
+				 creates a dependency on the artifact 
+				 birt-viewer-<version>-classes.jar. This JAR is created by the
+				 maven-war-plugin< plugin in the birt-viewer by using the 
+				 configuration setting: <attachClasses>true</attachClasses>.
+				 This is necessary because it does not work to make a dependency
+				 on a WAR file, i.e., specifying<type>war</type> here does not 
+				 work. 
+			-->
+			<classifier>classes</classifier>
+			
+			<!-- <exclusions>
+				<exclusion>
+					<groupId>org.eclipse.birt.runtime</groupId>
+					<artifactId>org.eclipse.birt.runtime</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.eclipse.birt.runtime</groupId>
+					<artifactId>viewservlets</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>axis</groupId>
+					<artifactId>axis</artifactId>
+				</exclusion>
+			</exclusions> -->
+			
+			
+		</dependency>
+
+	</dependencies>
+
+	<build>
+	
+		<!-- "finalName" sets the context root of the deployed web application.
+			Otherwise, the web app will be deployed at /<artifactId>-<version> -->
+		<finalName>birt-reports</finalName>
+		
+		<plugins>
+
+			<!-- The Maven Compiler Plugin is used to compile the sources of your
+				 project. This <plugin> element is used here to set the JVM source
+				 and target compliance level, as well as to set other parameters
+				 used by this plug-in. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin-version}</version>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+					<compilerArgument>-Xlint:all</compilerArgument>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<!-- This is sets the name of the jar file generated -->
+					<finalName>${project.artifactId}-with-dependencies</finalName>
+					<!-- <finalName>${project.artifactId}-${project.version}-with-deps</finalName> -->
+					<artifactSet>
+						<excludes>
+							<exclude>org.eclipse.birt.runtime</exclude>
+							<exclude>org.eclipse.birt.runtime.*</exclude>
+							<exclude>axis</exclude>
+							<exclude>javax.servlet</exclude>
+							<exclude>junit</exclude>
+							<!-- I specified the following exclusions because they were
+								 listed as "included" when the maven-shade-plugin runs,
+								 but I saw no reason why they should be needed. -->
+							<exclude>org.milyn</exclude>
+							<exclude>org.apache.axis</exclude>
+							<exclude>commons-discovery</exclude>
+							<exclude>commons-logging</exclude>
+							<exclude>commons-cli</exclude>
+							<exclude>commons-lang</exclude>
+							<exclude>commons-codec</exclude>
+							<exclude>org.apache.poi</exclude>
+							<exclude>dom4j:dom4j</exclude>
+							<exclude>xml-apis:xml-apis</exclude>
+							<exclude>org.apache.xmlbeans:xmlbeans</exclude>
+							<exclude>stax:stax-api</exclude>
+							
+							<!-- Some of these exclusions will need to be removed
+								(commented out) at some point if exceptions are 
+								thrown when a POJO-based data previewed. The 
+								exclusions that are already commented out here are
+								for dependencies that have been show to be necessary
+								for POJO-based data sets that have been implemented
+								so far.
+							-->
+<!-- 							<exclude>org.slf4j</exclude> -->
+<!-- 							<exclude>ch.qos.logback</exclude> -->
+							<exclude>org.javassist:javassist</exclude>
+							<exclude>javax.annotation</exclude>
+<!-- 							<exclude>org.glassfish.hk2</exclude> -->
+<!-- 							<exclude>org.glassfish.hk2:hk2-api</exclude> -->
+<!-- 							<exclude>org.glassfish.hk2:hk2-utils</exclude> -->
+<!-- 							<exclude>org.glassfish.hk2:hk2-locator</exclude> -->
+							<exclude>org.glassfish.hk2.*</exclude>
+<!-- 							<exclude>org.glassfish.jersey.bundles.repackaged:jersey-guava</exclude> -->
+							<exclude>org.glassfish.hk2:osgi-resource-locator</exclude>
+<!-- 							<exclude></exclude> -->
+<!-- 							<exclude></exclude> -->
+<!-- 							<exclude></exclude> -->
+						</excludes>
+					</artifactSet>				
+				</configuration>
+				<executions>
+					<execution>
+					<phase>package</phase>
+					<goals>
+						<goal>shade</goal>
+					</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
