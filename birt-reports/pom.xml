@@ -4,7 +4,13 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.qfree.obo</groupId>
+    <parent>
+		<groupId>com.qfree.obo</groupId>
+		<artifactId>reporting-master</artifactId>
+		<version>1</version>
+    </parent>
+
+	<!-- <groupId>com.qfree.obo</groupId> -->
 	<artifactId>birt-reports</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -40,12 +46,7 @@
 	</issueManagement>
 
 	<properties>
-		<java-version>1.7</java-version>
-		<obo-birt-viewer-version>1.0-SNAPSHOT</obo-birt-viewer-version>
-		<org.slf4j-version>1.7.10</org.slf4j-version>
-		<logback-version>1.1.2</logback-version>
-		<maven-compiler-plugin-version>3.1</maven-compiler-plugin-version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<obo.birt-viewer.version>1.0-SNAPSHOT</obo.birt-viewer.version>
 	</properties>
 	
 	<dependencies>
@@ -54,7 +55,7 @@
 		
 			<groupId>com.qfree.obo</groupId>
 			<artifactId>birt-viewer</artifactId>
-			<version>${obo-birt-viewer-version}</version>
+			<version>${obo.birt-viewer.version}</version>
 			<exclusions>
 				<!-- This exclusion eliminates the following warning lines:
 				
@@ -136,14 +137,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven-compiler-plugin-version}</version>
-				<configuration>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
-					<compilerArgument>-Xlint:all</compilerArgument>
-					<showWarnings>true</showWarnings>
-					<showDeprecation>true</showDeprecation>
-				</configuration>
 			</plugin>
 			
 			<plugin>
