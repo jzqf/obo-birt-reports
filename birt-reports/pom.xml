@@ -156,7 +156,8 @@
 							<exclude>junit</exclude>
 							<!-- I specified the following exclusions because they were
 								 listed as "included" when the maven-shade-plugin runs,
-								 but I saw no reason why they should be needed. -->
+								 (see the Eclipse Console view), but I saw no reason why 
+								 they should be needed. -->
 							<exclude>org.milyn</exclude>
 							<exclude>org.apache.axis</exclude>
 							<exclude>commons-discovery</exclude>
