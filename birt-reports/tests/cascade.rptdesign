@@ -1,34 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
     <property name="comments">Copyright (c) 2006 &lt;&lt;Your Company Name here>></property>
-    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.5.0.v201506092134 Build &lt;@BUILD@></property>
     <property name="units">in</property>
     <property name="layoutPreference">auto layout</property>
     <parameters>
         <cascading-parameter-group name="customerorders" id="7">
+            <text-property name="promptText">Prompt text for customerorders</text-property>
             <property name="dataSetMode">multiple</property>
             <parameters>
                 <scalar-parameter name="customer" id="8">
+                    <text-property name="helpText">Help text for customer</text-property>
+                    <text-property name="promptText">Prompt test for customer</text-property>
                     <property name="valueType">dynamic</property>
                     <property name="isRequired">true</property>
                     <property name="dataSetName">customers</property>
                     <expression name="valueExpr">row["CUSTOMERNUMBER"]</expression>
                     <expression name="labelExpr">row["CUSTOMERNAME"]</expression>
                     <property name="dataType">integer</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">260</value>
+                    </simple-property-list>
                     <property name="controlType">list-box</property>
+                    <property name="fixedOrder">true</property>
                     <structure name="format">
                         <property name="category">Unformatted</property>
                     </structure>
                 </scalar-parameter>
                 <scalar-parameter name="order" id="9">
+                    <text-property name="helpText">Help text for order</text-property>
+                    <text-property name="promptText">Prompt test for order</text-property>
                     <property name="valueType">dynamic</property>
                     <property name="isRequired">true</property>
                     <property name="dataSetName">orders</property>
                     <expression name="valueExpr">row["ORDERNUMBER"]</expression>
                     <expression name="labelExpr">row["ORDERNUMBER"]</expression>
                     <property name="dataType">integer</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">10283</value>
+                    </simple-property-list>
                     <property name="concealValue">false</property>
                     <property name="controlType">list-box</property>
+                    <property name="fixedOrder">true</property>
                     <structure name="format">
                         <property name="category">Unformatted</property>
                     </structure>

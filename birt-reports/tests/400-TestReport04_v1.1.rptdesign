@@ -6,56 +6,59 @@
     <property name="bidiLayoutOrientation">ltr</property>
     <property name="imageDPI">96</property>
     <parameters>
-        <scalar-parameter name="StringParameterTextBoxReqd" id="5">
-            <text-property name="helpText">This is some help text for "StringParameterTextBoxReqd"</text-property>
-            <text-property name="promptText">String: TextBox (required)</text-property>
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">some default value</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="StringParameterTextBoxNotReqd" id="236">
-            <text-property name="helpText">This is some help text for "StringParameterTextBoxNotReqd"</text-property>
-            <text-property name="promptText">String: TextBox (not required)</text-property>
-            <property name="valueType">static</property>
-            <property name="isRequired">false</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant">some default value</value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="StringParameterTextBoxNotReqdNoDefault" id="357">
-            <text-property name="helpText">This is some help text for "StringParameterTextBoxNotReqdNoDefault"</text-property>
-            <text-property name="promptText">String: TextBox (not required, no default)</text-property>
-            <property name="valueType">static</property>
-            <property name="isRequired">false</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <simple-property-list name="defaultValue">
-                <value type="constant"></value>
-            </simple-property-list>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
+        <parameter-group name="String_TextBoxes" id="359">
+            <text-property name="displayName">Display name for String_TextBoxes</text-property>
+            <parameters>
+                <scalar-parameter name="StringParameterTextBoxReqd" id="5">
+                    <text-property name="helpText">This is some help text for "StringParameterTextBoxReqd"</text-property>
+                    <text-property name="promptText">String: TextBox (required)</text-property>
+                    <property name="valueType">static</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">some default value</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">text-box</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="StringParameterTextBoxNotReqd" id="236">
+                    <text-property name="helpText">This is some help text for "StringParameterTextBoxNotReqd"</text-property>
+                    <text-property name="promptText">String: TextBox (not required)</text-property>
+                    <property name="valueType">static</property>
+                    <property name="isRequired">false</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant">some default value</value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">text-box</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+                <scalar-parameter name="StringParameterTextBoxNotReqdNoDefault" id="357">
+                    <property name="valueType">static</property>
+                    <property name="isRequired">false</property>
+                    <property name="dataType">string</property>
+                    <property name="distinct">true</property>
+                    <simple-property-list name="defaultValue">
+                        <value type="constant"></value>
+                    </simple-property-list>
+                    <list-property name="selectionList"/>
+                    <property name="paramType">simple</property>
+                    <property name="controlType">text-box</property>
+                    <structure name="format">
+                        <property name="category">Unformatted</property>
+                    </structure>
+                </scalar-parameter>
+            </parameters>
+        </parameter-group>
         <scalar-parameter name="StringParameterComboBoxStaticReqd" id="57">
             <text-property name="helpText">This is some help text for "StringParameterComboBoxStaticReqd"</text-property>
             <text-property name="promptText">String: ComboBox (static list, required)</text-property>
@@ -555,19 +558,19 @@
             <list-property name="selectionList">
                 <structure>
                     <property name="value">0</property>
-                    <property name="label">Display test for 0</property>
+                    <property name="label">Display text for value  0</property>
                 </structure>
                 <structure>
                     <property name="value">42</property>
-                    <property name="label">Display test for 42</property>
+                    <property name="label">Display text for value 42</property>
                 </structure>
                 <structure>
                     <property name="value">666</property>
-                    <property name="label">Display test for 666</property>
+                    <property name="label">Display text for value 666</property>
                 </structure>
                 <structure>
                     <property name="value">12345678</property>
-                    <property name="label">Display test for 12345678</property>
+                    <property name="label">Display text for value 12345678</property>
                 </structure>
             </list-property>
             <property name="paramType">simple</property>
@@ -698,7 +701,8 @@
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <structure name="format">
-                <property name="category">Unformatted</property>
+                <property name="category">Fixed</property>
+                <property name="pattern">###0.00{RoundingMode=HALF_UP}</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="FloatParameterTextBoxNotReqd" id="349">
