@@ -728,7 +728,7 @@
     </page-setup>
     <body>
         <label id="3">
-            <text-property name="text">400-TestReport04_v1.1</text-property>
+            <text-property name="text">400-AllReportParameterTypes_v1.1</text-property>
         </label>
         <label id="227">
             <property name="fontSize">12pt</property>

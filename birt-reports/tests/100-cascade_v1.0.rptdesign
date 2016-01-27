@@ -48,22 +48,6 @@
                 </scalar-parameter>
             </parameters>
         </cascading-parameter-group>
-        <scalar-parameter name="ParamWithDynamicList" id="61">
-            <property name="valueType">dynamic</property>
-            <property name="dataSetName">customers</property>
-            <expression name="valueExpr" type="javascript">dataSetRow["CUSTOMERNUMBER"]</expression>
-            <expression name="labelExpr" type="javascript">dataSetRow["CUSTOMERNAME"]</expression>
-            <property name="dataType">integer</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">list-box</property>
-            <property name="mustMatch">true</property>
-            <property name="fixedOrder">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="4">
@@ -1116,38 +1100,5 @@ from CLASSICMODELS.CUSTOMERS</design:queryText>
                 </row>
             </footer>
         </table>
-        <grid id="63">
-            <property name="marginTop">20pt</property>
-            <property name="marginBottom">10pt</property>
-            <column id="64">
-                <property name="width">1.7604166666666667in</property>
-            </column>
-            <column id="65">
-                <property name="width">4.1875in</property>
-            </column>
-            <row id="66">
-                <cell id="67">
-                    <property name="paddingTop">1pt</property>
-                    <label id="70">
-                        <property name="fontWeight">bold</property>
-                        <property name="textAlign">right</property>
-                        <text-property name="text">ParamWithDynamicList:</text-property>
-                    </label>
-                </cell>
-                <cell id="68">
-                    <property name="paddingTop">1pt</property>
-                    <data id="69">
-                        <list-property name="boundDataColumns">
-                            <structure>
-                                <property name="name">ParamWithDynamicList</property>
-                                <expression name="expression" type="javascript">params["ParamWithDynamicList"]</expression>
-                                <property name="dataType">string</property>
-                            </structure>
-                        </list-property>
-                        <property name="resultSetColumn">ParamWithDynamicList</property>
-                    </data>
-                </cell>
-            </row>
-        </grid>
     </body>
 </report>
