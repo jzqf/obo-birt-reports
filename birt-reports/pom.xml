@@ -46,7 +46,7 @@
 	</issueManagement>
 
 	<properties>
-		<obo.birt-viewer.version>1.0-SNAPSHOT</obo.birt-viewer.version>
+		<obo.birt-viewer.version>0.13-SNAPSHOT</obo.birt-viewer.version>
 	</properties>
 	
 	<dependencies>
