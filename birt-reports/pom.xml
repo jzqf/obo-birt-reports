@@ -4,19 +4,19 @@
 
 	<modelVersion>4.0.0</modelVersion>
 
-    <parent>
-		<groupId>com.qfree.obo</groupId>
+	<parent>
+		<groupId>com.qfree.bo</groupId>
 		<artifactId>reporting-master</artifactId>
-		<version>1</version>
-    </parent>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
 
-	<!-- <groupId>com.qfree.obo</groupId> -->
+	<!-- <groupId>com.qfree.bo</groupId> -->
 	<artifactId>birt-reports</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>OBO Reports</name>
-	<description>Java project for developing BIRT reports</description>
+	<name>BIRT Report Tests</name>
+	<description>Java project for general BIRT report testing</description>
 	<inceptionYear>2015</inceptionYear>
 	<organization>
 		<name>Q-Free ASA</name>
@@ -40,22 +40,22 @@
 			</properties>
 		</developer>
 	</developers>
-	<issueManagement>
-		<system>JIRA</system>
-		<url>https://issues.q-free.com:8443/browse/QF15203</url>
-	</issueManagement>
+<!-- 	<issueManagement> -->
+<!-- 		<system>JIRA</system> -->
+<!-- 		<url>https://issues.q-free.com:8443/browse/QF15203</url> -->
+<!-- 	</issueManagement> -->
 
 	<properties>
-		<obo.birt-viewer.version>0.13-SNAPSHOT</obo.birt-viewer.version>
+		<bo.report-server.version>0.15.0-SNAPSHOT</bo.report-server.version>
 	</properties>
 	
 	<dependencies>
 
 		<dependency>
 		
-			<groupId>com.qfree.obo</groupId>
-			<artifactId>birt-viewer</artifactId>
-			<version>${obo.birt-viewer.version}</version>
+			<groupId>com.qfree.bo</groupId>
+			<artifactId>report-server</artifactId>
+			<version>${bo.report-server.version}</version>
 			<exclusions>
 				<!-- This exclusion eliminates the following warning lines:
 				
@@ -93,8 +93,8 @@
 					<classifier>classes</classifier>
 					
 				 creates a dependency on the artifact 
-				 birt-viewer-<version>-classes.jar. This JAR is created by the
-				 maven-war-plugin< plugin in the birt-viewer by using the 
+				 report-server-<version>-classes.jar. This JAR is created by the
+				 maven-war-plugin< plugin in the report-server by using the 
 				 configuration setting: <attachClasses>true</attachClasses>.
 				 This is necessary because it does not work to make a dependency
 				 on a WAR file, i.e., specifying<type>war</type> here does not 
