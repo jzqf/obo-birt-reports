@@ -14,10 +14,10 @@
                 </ex-property>
                 <ex-property>
                     <name>pojoClassPath</name>
-                    <value>/home/jeffreyz/git/obo-birt-reports/birt-reports/target/birt-reports-with-dependencies.jar;</value>
+                    <value>/home/jeffreyz/git/birt-report-tests/birt-report-tests/target/birt-report-tests-with-dependencies.jar;</value>
                 </ex-property>
             </list-property>
-            <property name="pojoDataSetClassPath">/home/jeffreyz/git/obo-birt-reports/birt-reports/target/birt-reports-with-dependencies.jar;</property>
+            <property name="pojoDataSetClassPath">/home/jeffreyz/git/birt-report-tests/birt-report-tests/target/birt-report-tests-with-dependencies.jar;</property>
         </oda-data-source>
     </data-sources>
     <data-sets>

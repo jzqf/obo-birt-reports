@@ -1,4 +1,4 @@
-package com.qfree.obo.reports.test_pojo_ds;
+package com.qfree.bo.reports.test_pojo_ds;
 
 import com.qfree.obo.report.rest.client.UserTestRestDataSource;
 

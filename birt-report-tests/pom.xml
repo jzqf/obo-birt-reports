@@ -11,7 +11,7 @@
 	</parent>
 
 	<!-- <groupId>com.qfree.bo</groupId> -->
-	<artifactId>birt-reports</artifactId>
+	<artifactId>birt-report-tests</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -126,7 +126,7 @@
 	
 		<!-- "finalName" sets the context root of the deployed web application.
 			Otherwise, the web app will be deployed at /<artifactId>-<version> -->
-		<finalName>birt-reports</finalName>
+		<finalName>birt-report-tests</finalName>
 		
 		<plugins>
 
