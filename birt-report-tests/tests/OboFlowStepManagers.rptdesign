@@ -210,7 +210,7 @@
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<PojoQuery appContextKey="APP_CONTEXT_KEY_OBOFLOWMANAGER_DATASET" dataSetClass="com.qfree.obo.report.rest.client.OboFlowStepManagersRestDS" version="1.0">
+<PojoQuery appContextKey="APP_CONTEXT_KEY_OBOFLOWMANAGER_DATASET" dataSetClass="com.qfree.bo.report.rest.client.OboFlowStepManagersRestDS" version="1.0">
     <ClassColumnMappings>
         <ColumnMapping index="1" name="Manager_Name" odaDataType="String">
             <Method name="getName"/>
@@ -363,7 +363,7 @@
                 </ex-property>
                 <ex-property>
                     <name>pojoClass</name>
-                    <value>com.qfree.obo.report.rest.client.OboFlowStepManager</value>
+                    <value>com.qfree.bo.report.rest.client.OboFlowStepManager</value>
                 </ex-property>
             </list-property>
         </oda-data-set>

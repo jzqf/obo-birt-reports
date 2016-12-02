@@ -1,6 +1,6 @@
 package com.qfree.bo.reports.test_pojo_ds;
 
-import com.qfree.obo.report.rest.client.UserTestRestDataSource;
+import com.qfree.bo.report.rest.client.UserTestRestDataSource;
 
 public class TestPojoDS_UsersTest {
 
